@@ -1,0 +1,10 @@
+<ion-view view-title="Login Page">
+   <ion-content class="padding">
+      <form name="registerForm" ng-submit="signupForm(registerForm)" novalidate>
+         <label class="item item-input" ng-class="{ 'has-errors' : registerForm.email.$invalid && registerForm.$submitted}">
+            <input name="email" type="email" placeholder="Email" ng-model="user.email" required>
+         </label>
+         <button type="submit" class="button button-block button-calm">Login</button>
+      </form>
+   </ion-content>
+</ion-view>

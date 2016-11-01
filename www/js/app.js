@@ -28,11 +28,12 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
+
     .state('lobby', {
-      url: '/',
-      templateUrl: 'templates/lobby.html',
-      controller: 'LobbyCtrl',
-    })
+    url: '/lobby',
+    templateUrl: 'templates/lobby.html',
+    controller: 'LobbyCtrl',
+  })
 
   .state('question', {
     url: '/question:questionID',
@@ -60,21 +61,22 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
     url: '/results',
     templateUrl: 'templates/results.html',
     controller: 'ResultsCtrl'
-  });
+  })
   
   .state('landing', {
-    
-    
-  });
+    url: '/',
+    templateUrl: 'templates/landing.html'  
+  })
   
   .state('register', {
-    
-    
-  });
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller: 'RegisterCtrl'
+  })
   
   .state('login', {
-    
-    
+    url: '/login',
+    templateUrl: 'templates/login.html'   
   });
-
+  
 });
