@@ -1,4 +1,9 @@
 <ion-view view-title="Menu">
+    <ion-nav-buttons side="right">
+        <button class="button" ng-click="logout()">
+            Logout
+        </button>
+    </ion-nav-buttons>
     <ion-content class="padding">
         <button class="button button-block button-calm ptor-lobby-go-question" , ng-click=goToTest() ui-sref="question">Thomas-Kilmann Test</button>
         <button class="button button-block button-calm" ui-sref="history">My Thomas-Kilmann Results</button>
