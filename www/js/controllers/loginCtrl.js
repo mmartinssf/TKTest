@@ -1,20 +1,20 @@
 /*global angular*/
 angular.module('starter.controllers')
-    .controller('RegisterCtrl', ['$scope', 'SSFUsersRest', '$http', '$state', '$window',
+    .controller('LoginCtrl', ['$scope', 'SSFUsersRest', '$http', '$state', '$window',
         function($scope, SSFUsersRest, $http, $state, $window) {
-            
+         
             $scope.user = {};
             
-            $scope.signupForm = function(form) {
+            $scope.login = function(form) {
                 //if form missing required fields, alert user
                 if (form.$invalid) return alert("Please complete the form before proceeding.");
                 
-                SSFUsersRest.post($scope.user)
+                SSFUsersRest.login($scope.user)
                 .then(function(response) {
                     //store id/token to local storage
-                    $window.localStorage.userId = response.data.id;
-                    $window.localStorage.token = response.data.token;
-
+                    $window.localStorage.userId = response.data.userId;
+                    $window.localStorage.id = response.data.token;
+                    
                     //data is null, alert user
                     if (response.data === null) {
                         return alert("User is Offline");
@@ -26,8 +26,8 @@ angular.module('starter.controllers')
                 }, 
                 //alerts for error response
                 function(error) {
-                    if (error.status === 404) {
-                        return alert("Not Found!");
+                    if (error.status === 401) {
+                        return alert("Login Failed! Please Verify Login & Password.");
                     }
                     else if (error.status === 422) {
                         return alert("Email Is Already Taken");
@@ -38,7 +38,6 @@ angular.module('starter.controllers')
                         
                 });
             };
-            
         }
         
     ]);

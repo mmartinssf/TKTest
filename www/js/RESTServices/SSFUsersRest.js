@@ -11,5 +11,13 @@ angular.module("RESTServices", [])
             });
         };
         
+        SSFUsersRest.login = function(UserData) {
+            return $http({
+                url: "https://strongloop-backend-martinssf.c9users.io:8080/api/SSFUsers/login",
+                method: "POST",     
+                data: UserData
+            });
+        };
+        
     }]);
     

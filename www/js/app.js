@@ -76,7 +76,8 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
   
   .state('login', {
     url: '/login',
-    templateUrl: 'templates/login.html'   
+    templateUrl: 'templates/login.html',
+    controller: 'LoginCtrl'
   });
   
 });
