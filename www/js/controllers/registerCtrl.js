@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('starter.controllers')
-    .controller('RegisterCtrl', ['$scope', 'SSFUsersRest', '$http', '$state', '$window',
-        function($scope, SSFUsersRest, $http, $state, $window) {
+    .controller('RegisterCtrl', ['$scope', 'SSFUsersRest', '$http', '$state', '$window', '$location',
+        function($scope, SSFUsersRest, $http, $state, $window, $location) {
             
             $scope.user = {};
             
@@ -37,6 +37,10 @@ angular.module('starter.controllers')
                     }
                         
                 });
+            };
+            
+            $scope.login = function() {
+                $location.path('/login');
             };
             
         }

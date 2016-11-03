@@ -1,12 +1,30 @@
 <ion-view view-title="My Results">
-    <ion-content>
-        <ion-list>
-          <ion-item ng-repeat="test in tests" ng-click="goToResult(test)">
-            Test {{$index+1}}
-            <span class="item-note">
+  
+  <!-- Tabs -->
+        <div class="tabs tabs-icon-top tabs-calm">
+  <a class="tab-item">
+    <i class="icon ion-home" ng-click="goBack()"></i>
+    Home
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-university" ng-click=goToTest()></i>
+    Take Test
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-log-out" ng-click=logout()></i>
+    Log Out
+  </a>
+</div>
+<!-- Tabs End -->
+
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="test in tests" ng-click="goToResult(test)">
+        Test {{$index+1}}
+        <span class="item-note">
               {{test.createDate | date:'dd-MMM-yyyy hh:mm a'}}
             </span>
-          </ion-item>
-        </ion-list>
-    </ion-content>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-view>

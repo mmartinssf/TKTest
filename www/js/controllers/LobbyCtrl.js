@@ -1,8 +1,8 @@
 /*global angular*/
 angular.module('starter.controllers')
 
-.controller('LobbyCtrl',['$scope', 'TKTestQuestionService', '$state', 'TKAnswersService', 'SSFUsersRest', '$window', 
-function($scope, TKTestQuestionService, $state, TKAnswersService, SSFUsersRest, $window) {
+.controller('LobbyCtrl',['$scope', 'TKTestQuestionService', '$state', 'TKAnswersService', 'SSFUsersRest', '$window', '$location', 
+function($scope, TKTestQuestionService, $state, TKAnswersService, SSFUsersRest, $window, $location) {
 TKTestQuestionService.all();
 
 
@@ -19,6 +19,10 @@ TKTestQuestionService.all();
             $state.go('landing');
          }
       });
+   };
+   
+   $scope.results = function() {
+      $location.path('/history');
    };
 
 }]);

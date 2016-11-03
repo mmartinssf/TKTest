@@ -1,11 +1,25 @@
 <ion-view view-title="Menu">
-    <ion-nav-buttons side="right">
-        <button class="button" ng-click="logout()">
-            Logout
-        </button>
-    </ion-nav-buttons>
+    <!-- Tabs -->
+        <div class="tabs tabs-icon-top tabs-calm">
+  <a class="tab-item">
+    <i class="icon ion-stats-bars" ng-click=results()></i>
+    Results
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-university" ng-click=goToTest()></i>
+    Take Test
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-log-out" ng-click=logout()></i>
+    Log Out
+  </a>
+</div>
+<!-- Tabs End -->
+
+    
     <ion-content class="padding">
-        <button class="button button-block button-calm ptor-lobby-go-question" , ng-click=goToTest() ui-sref="question">Thomas-Kilmann Test</button>
-        <button class="button button-block button-calm" ui-sref="history">My Thomas-Kilmann Results</button>
+        <!--<button class="button button-block button-calm ptor-lobby-go-question" , ng-click=goToTest() ui-sref="question">Thomas-Kilmann Test</button>-->
+        <!--<button class="button button-block button-calm" ui-sref="history">My Thomas-Kilmann Results</button>-->
     </ion-content>
+    
 </ion-view>
