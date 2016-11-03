@@ -6,7 +6,7 @@ angular.module("RESTServices")
         
         QuestionsRest.results = function(token) {
             return $http({
-                headers: { Authorization: token },
+                headers: { 'Authorization': token },
                 url: "https://strongloop-backend-martinssf.c9users.io:8080/api/Questions",
                 method: "GET"
             });

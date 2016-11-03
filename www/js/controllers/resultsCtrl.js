@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('starter.controllers')
-    .controller('ResultsCtrl', ['$scope', 'TKAnswersService', 'TKResultsButtonService', '$ionicHistory', '$state',
-        function($scope, TKAnswersService, TKResultsButtonService, $ionicHistory, $state) {
+    .controller('ResultsCtrl', ['$scope', 'TKAnswersService', 'TKResultsButtonService', '$ionicHistory', '$state', 'SSFUsersRest', '$window', '$location',
+        function($scope, TKAnswersService, TKResultsButtonService, $ionicHistory, $state, SSFUsersRest, $window, $location) {
 
             $scope.menuButtonTapped = function() {
                 $ionicHistory.nextViewOptions({
@@ -47,7 +47,26 @@ angular.module('starter.controllers')
                 pointStrokeColor: "#fff",
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,0.8)"
-            }]
+            }];
+            
+            $scope.goToTest = function() {
+                TKAnswersService.resetAnswers();
+                $state.go('question',{questionID:1});
+            };
+            
+            $scope.logout = function() {
+            SSFUsersRest.logout($window.localStorage.token)
+                .then(function(response) {
+                    if (response.status === 204) {
+                        //$window.localStorage.clear();
+                        $state.go('landing');
+                    }
+                });
+            };
+            
+            $scope.goBack = function() {
+                $location.path('/history');
+            };
         }
 
     ]);

@@ -1,11 +1,24 @@
 <ion-view view-title="Results">
-    <ion-nav-buttons side="left">
-        <button class="button" ng-click="menuButtonTapped()" ng-show="shouldShowButton">
-        Menu
-</button>
-    </ion-nav-buttons>
-    <ion-content class="padding">
-        <h1>Results</h1>
-        <canvas id="bar" class="chart chart-bar" data="data" labels="labels" options="options" height="300" colours="colours"></canvas>
-    </ion-content>
+
+  <!-- Tabs -->
+  <div class="tabs tabs-icon-top tabs-calm">
+    <a class="tab-item">
+      <i class="icon ion-arrow-left-c" ng-click="goBack()"></i> Back
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-home" ng-click="menuButtonTapped()"></i> Home
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-university" ng-click=goToTest()></i> Take Test
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-log-out" ng-click=logout()></i> Log Out
+    </a>
+  </div>
+
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <h1>Results</h1>
+    <canvas id="bar" class="chart chart-bar" data="data" labels="labels" options="options" height="300" colours="colours"></canvas>
+  </ion-content>
 </ion-view>

@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('starter.controllers')
-    .controller('QuestionsCtrl', ['$scope', '$stateParams', 'testInfo', 'TKAnswersService', 'TKResultsButtonService', '$state', '$ionicHistory',
-        function($scope, $stateParams, testInfo, TKAnswersService, TKResultsButtonService, $state, $ionicHistory) {
+    .controller('QuestionsCtrl', ['$scope', '$stateParams', 'testInfo', 'TKAnswersService', 'TKResultsButtonService', '$state', '$ionicHistory', '$window',
+        function($scope, $stateParams, testInfo, TKAnswersService, TKResultsButtonService, $state, $ionicHistory, $window) {
 
             $scope.ptorQuestionGoA = 'ptor-question-go-a' + $stateParams.questionID;
             $scope.ptorQuestionGoB = 'ptor-question-go-b' + $stateParams.questionID;
@@ -37,13 +37,15 @@ angular.module('starter.controllers')
             $scope.goBack = function() {
                 if ($scope.qNumber > 1)
                     TKAnswersService.eraseLastAnswer();
-                $ionicHistory.goBack();
+                    $ionicHistory.goBack();
             };
 
             function performRequest() {
                 var answersDict = angular.copy(TKAnswersService.getAnswers());
                 var date = new Date();
                 answersDict["createDate"] = date.toUTCString();
+                answersDict["userID"] = $window.localStorage["userId"];
+                TKAnswersService.saveTest(answersDict);
                 TKResultsButtonService.setShouldShowMenuButton(true);
                 $ionicHistory.nextViewOptions({
                     historyRoot: true
