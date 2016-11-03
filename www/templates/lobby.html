@@ -17,9 +17,23 @@
 <!-- Tabs End -->
 
     
-    <ion-content class="padding">
-        <!--<button class="button button-block button-calm ptor-lobby-go-question" , ng-click=goToTest() ui-sref="question">Thomas-Kilmann Test</button>-->
-        <!--<button class="button button-block button-calm" ui-sref="history">My Thomas-Kilmann Results</button>-->
+    <ion-content align="center">
+        
+        <!-- Slide-Box Template -->
+        <ion-slide-box class="container" on-slide-changed="slideHasChanged($index)">
+            <ion-slide ng-repeat="item in items">
+               <div class="title"><h2>{{item.title}}</h2></div>
+               <div class="content"><h5>{{item.content}}</h5></div>
+               <ul>
+               <p>{{item.content2}}</p>
+               <p>{{item.content3}}</p>
+               </ul>
+               <img class="images" ng-src="{{item.image}}">
+               <div class="content"><p>{{item.content4}}</p></div>
+            </ion-slide>
+        </ion-slide-box>
+        <!-- Slide-Box Template End-->  
+          
     </ion-content>
     
 </ion-view>
