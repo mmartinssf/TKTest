@@ -3,10 +3,12 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-/*global angular*/
-/*global cordova*/
+/*global angular cordova StatusBar*/
+
+
 angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'TKTestAnswers', 'chart.js', 'TKResultsButton', 'RESTServices'])
 
+//Start Ionic
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -25,11 +27,13 @@ angular.module('starter', ['ionic', 'TKTestQuestions', 'starter.controllers', 'T
   });
 })
 
+//Set RouterProvider default to landing page
+//Declare states
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
 
-    .state('lobby', {
+  .state('lobby', {
     url: '/lobby',
     templateUrl: 'templates/lobby.html',
     controller: 'LobbyCtrl',
