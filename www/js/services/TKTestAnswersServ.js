@@ -42,12 +42,12 @@ angular.module('TKTestAnswers', [])
             
             //Save test to backend, token for verification
             service.saveTest = function(test) {
-                test.userID = $window.localStorage.userID;
+                test.userID = $window.localStorage.userId;
                 TestResultsRest.save(test, $window.localStorage["token"])
                 .then(function(response) {
                     //If saved, log to console
                     if (response.status === 200) {
-                        console.log(response);
+                        //console.log(response);
                     }
                     //Else return response
                     else {
@@ -70,7 +70,6 @@ angular.module('TKTestAnswers', [])
                         }
                     });
             };
-            //Place answers in object answerCatefories
             
             //Change value of answerCategories to parameter passed
             service.setAnswers = function(answers) {
