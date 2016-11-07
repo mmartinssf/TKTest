@@ -17,10 +17,10 @@
             <label class="item item-input">
                <input placeholder="Orginization" name="organization" type="text" ng-model="user.organization">
             </label>
-            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.email.$invalid }">
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.email.$invalid && registerForm.$submitted }">
                <input placeholder="Email" name="email" type="email" ng-model="user.email" required>
             </label>
-            <label class="item item-input">
+            <label class="item item-input" ng-class="{ 'has-errors' : registerForm.email.$invalid && registerForm.$submitted}">
                <input placeholder="Password" name="password" type="password" ng-model="user.password" required>
             </label>
             <button type="submit" class="button button-block button button-calm">Register</button>

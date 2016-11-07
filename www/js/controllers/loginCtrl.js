@@ -1,7 +1,7 @@
 /*global angular*/
 angular.module('starter.controllers')
-    .controller('LoginCtrl', ['$scope', '$state','SSFUsersRest', '$window', '$location',
-        function($scope, $state, SSFUsersRest, $window, $location) {
+    .controller('LoginCtrl', ['$scope', '$state','SSFUsersRest', '$window', '$location', 'UserInfoRest',
+        function($scope, $state, SSFUsersRest, $window, $location, UserInfoRest) {
          
             $scope.user = {};
             
